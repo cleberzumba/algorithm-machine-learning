@@ -177,12 +177,12 @@ plt.show()
 
 1. Clone this repository
 
-git clone https://github.com/cleberzumba/linear-regression-housing.git
-cd linear-regression-housing
+    git clone https://github.com/cleberzumba/linear-regression-housing.git
+    cd linear-regression-housing
 
 2. Install dependencies
 
-pip install numpy matplotlib scikit-learn
+    pip install numpy matplotlib scikit-learn
 
 3. Run the scripts directly in Python or Jupyter Notebook.
 
