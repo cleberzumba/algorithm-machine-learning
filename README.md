@@ -186,9 +186,9 @@ plt.show()
 
 3. Run the scripts directly in Python or Jupyter Notebook.
 
-# inside the repo folder
-python simple_linear_regression.py
-python multiple_linear_regression.py
+    # inside the repo folder
+    python simple_linear_regression.py
+    python multiple_linear_regression.py
 ```
 
 
