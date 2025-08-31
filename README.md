@@ -103,12 +103,12 @@ plt.grid(True)
 plt.text(60, 200000, formula, fontsize=10, color="red")
 
 plt.show()
-
-
+```
 
 
 ## Multiple Linear Regression (2 features)
 
+```python
 # Multiple Linear Regression (2 features): Price ~ Size(m²) + Bedrooms
 
 import numpy as np
@@ -170,7 +170,7 @@ ax.legend()
 
 plt.tight_layout()
 plt.show()
-
+```
 
 
 # How to Run
