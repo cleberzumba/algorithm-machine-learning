@@ -103,3 +103,91 @@ plt.grid(True)
 plt.text(60, 200000, formula, fontsize=10, color="red")
 
 plt.show()
+
+
+
+
+## Multiple Linear Regression (2 features)
+
+# Multiple Linear Regression (2 features): Price ~ Size(m²) + Bedrooms
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+# 1) Data (X has 2 columns -> multiple variables)
+#    X[:,0] = house size (m²)
+#    X[:,1] = number of bedrooms
+#    y      = price
+X = np.array([[50, 1], [60, 2], [80, 2], [100, 3], [120, 3], [150, 4],])
+y = np.array([150_000, 185_000, 250_000, 320_000, 380_000, 480_000])
+
+# 2) Train the Multiple Linear Regression model
+#    Estimate β0, β1, β2 in: y = β0 + β1*X1 + β2*X2
+model = LinearRegression()
+model.fit(X, y)
+
+intercept = model.intercept_
+coef_size, coef_bedrooms = model.coef_
+
+print("Intercept (β0):", intercept)
+print("Coefficients (β1, β2):", coef_size, coef_bedrooms)
+print(f"Equation of the plane: price = {intercept:,.2f} + ({coef_size:,.2f} × size_m²) + ({coef_bedrooms:,.2f} × bedrooms)")
+
+# 3) Create a grid (mesh) in the feature space (size × bedrooms)
+#    Predict the price for each point in the grid -> regression surface
+size_range = np.linspace(X[:,0].min()-5, X[:,0].max()+5, 40)
+bed_range  = np.linspace(X[:,1].min()-0.5, X[:,1].max()+0.5, 40)
+S, B = np.meshgrid(size_range, bed_range)               # 2D grids
+grid = np.c_[S.ravel(), B.ravel()]                      # combine (S,B) pairs
+Z = model.predict(grid).reshape(S.shape)                # predicted prices on the grid
+
+# 4) 3D Plot: real data points + regression plane
+fig = plt.figure(figsize=(9, 7))
+ax = fig.add_subplot(111, projection='3d')
+
+# Real data points (scatter)
+ax.scatter(X[:,0], X[:,1], y, s=50, label="Real data")
+
+# Regression plane (predicted surface)
+ax.plot_surface(S, B, Z, alpha=0.4)
+
+# Optional: predict new points and annotate them
+X_new = np.array([[70, 2], [90, 3], [110, 3]])
+y_new = model.predict(X_new)
+ax.scatter(X_new[:,0], X_new[:,1], y_new, marker="o", s=100, label="Predictions")
+
+for (sx, qb), py in zip(X_new, y_new):
+    ax.text(sx, qb, py, f"$ {py:,.0f}", fontsize=9)
+
+# Visual adjustments
+ax.set_xlabel('Size (m²)')
+ax.set_ylabel('Bedrooms')
+ax.set_zlabel('Price ($)')
+ax.set_title('Multiple Linear Regression: Price ~ Size + Bedrooms')
+ax.view_init(elev=20, azim=35)  # camera angle
+ax.legend()
+
+plt.tight_layout()
+plt.show()
+
+
+
+# How to Run
+
+1. Clone this repository
+
+git clone https://github.com/cleberzumba/linear-regression-housing.git
+cd linear-regression-housing
+
+2. Install dependencies
+
+pip install numpy matplotlib scikit-learn
+
+3. Run the scripts directly in Python or Jupyter Notebook.
+
+
+# Output
+
+    - Simple Linear Regression → Line fitting house price vs size.
+    - Multiple Linear Regression → 3D plane fitting house price vs size + bedrooms.
