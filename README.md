@@ -174,7 +174,7 @@ plt.show()
 
 
 # How to Run
-```python
+```bash
 1. Clone this repository
 
     git clone https://github.com/cleberzumba/linear-regression-housing.git
