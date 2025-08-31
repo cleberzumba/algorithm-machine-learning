@@ -78,8 +78,7 @@ plt.figure(figsize=(8,6))
 # Original data (scatter points)
 plt.scatter(X, y, color="blue", label="Real data")
 
-# Linear regression formula (for visualization on the plot)
-# General form (prediction): ŷ = β0 + β1*x
+# Mathematical Formula Simple Linear Regression Equation (for visualization on the plot): ŷ = β0 + β1*x
 formula = f"Price = {intercept:,.2f} + ({coefficient:,.2f} × Size_m²)"
 
 # Generate points for the regression line (from min to max of X)
@@ -132,6 +131,7 @@ coef_size, coef_bedrooms = model.coef_
 
 print("Intercept (β0):", intercept)
 print("Coefficients (β1, β2):", coef_size, coef_bedrooms)
+# Mathematical Formula Multiple Linear Regression Equation (for visualization on the plot): ^​=β0​+β1​⋅sizem2​+β2​⋅bedrooms
 print(f"Equation of the plane: price = {intercept:,.2f} + ({coef_size:,.2f} × size_m²) + ({coef_bedrooms:,.2f} × bedrooms)")
 
 # 3) Create a grid (mesh) in the feature space (size × bedrooms)
