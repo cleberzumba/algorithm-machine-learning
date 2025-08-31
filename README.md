@@ -178,7 +178,7 @@ plt.show()
 ```bash
 1. Clone this repository
 
-    git clone https://github.com/cleberzumba/linear-regression-housing.git
+    git clone https://github.com/cleberzumba/machine-learning-linear-regression
     cd linear-regression-housing
 
 2. Install dependencies
