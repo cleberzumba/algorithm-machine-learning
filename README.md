@@ -131,6 +131,7 @@ coef_size, coef_bedrooms = model.coef_
 
 print("Intercept (β0):", intercept)
 print("Coefficients (β1, β2):", coef_size, coef_bedrooms)
+
 # Mathematical Formula Multiple Linear Regression Equation (for visualization on the plot): ^​=β0​+β1​⋅sizem2​+β2​⋅bedrooms
 print(f"Equation of the plane: price = {intercept:,.2f} + ({coef_size:,.2f} × size_m²) + ({coef_bedrooms:,.2f} × bedrooms)")
 
