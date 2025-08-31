@@ -106,7 +106,7 @@ plt.show()
 ```
 
 
-## Multiple Linear Regression (2 features)
+## 2) Multiple Linear Regression (2 features)
 
 ```python
 # Multiple Linear Regression (2 features): Price ~ Size(m²) + Bedrooms
@@ -185,6 +185,12 @@ cd linear-regression-housing
 pip install numpy matplotlib scikit-learn
 
 3. Run the scripts directly in Python or Jupyter Notebook.
+
+```bash
+# inside the repo folder
+python simple_linear_regression.py
+python multiple_linear_regression.py
+```
 
 
 # Output
